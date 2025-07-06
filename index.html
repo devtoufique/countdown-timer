@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="home-wrapper">
+        <h1 class="heading">Countdown Timer</h1>
+        <div class="input-container">
+            <input type="number" class="hours-input" min="0" placeholder="Hours">
+            <input type="number" class="minutes-input" min="0" placeholder="Minutes">
+            <input type="number" class="seconds-input" min="0" placeholder="Seconds">
+            <button class="start-btn" onclick="startCountdownFromInput()">Start</button>
+        </div>
+        <div class="error-message"></div>
+    </div>
+
+    <div class="time"></div>
+
+    <div class="action-btn hidden">
+        <button class="start-again" onclick="location.reload()">
+            <i class="fa-solid fa-plus"></i> New
+        </button>
+        <button class="restart-btn" onclick="restartTimer()"><i class="fa-solid fa-arrow-rotate-right"></i> Restart</button>
+        <button class="pause-btn" onclick="togglePause()"><i class="fa-solid fa-pause"></i> Pause</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
