@@ -52,12 +52,17 @@ function startCountdown(duration) {
 
             updateTimerDisplay(remainingTime)
 
-            if (remainingTime == 0) {
+            if (remainingTime === 0) {
+                document.querySelector('.pause-btn').classList.add('hidden');
+            }
+
+            if (remainingTime < 0) {
                 clearInterval(countdownInterval);
                 timerDisplay.textContent = "Time's up!";
             }
         }
     }, 1000);
+
 }
 
 function restartTimer() {
@@ -65,10 +70,11 @@ function restartTimer() {
         isPaused = false;  // reset pause
         togglePauseButton(false); // update button text/icon
         startCountdown(originalTime);
+        document.querySelector('.pause-btn').classList.remove('hidden');
     }
+
 }
 
-// Helper function to update pause button UI
 function togglePauseButton(paused) {
     document.querySelector('.pause-btn').innerHTML = paused
         ? '<i class="fa-solid fa-play"></i> Resume'
