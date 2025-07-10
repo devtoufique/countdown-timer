@@ -6,7 +6,7 @@ let countdownInterval;
 let originalTime;
 let remainingTime = 0;
 let isPaused = false;
-
+const alarmSound = new Audio('alarm.mp3');
 
 function startCountdownFromInput() {
     const hours = Number(document.querySelector('.hours-input').value) || 0;
@@ -54,6 +54,7 @@ function startCountdown(duration) {
 
             if (remainingTime === 0) {
                 document.querySelector('.pause-btn').classList.add('hidden');
+                alarmSound.play();
             }
 
             if (remainingTime < 0) {
@@ -75,6 +76,7 @@ function restartTimer() {
 
 }
 
+// Helper function to update pause button UI
 function togglePauseButton(paused) {
     document.querySelector('.pause-btn').innerHTML = paused
         ? '<i class="fa-solid fa-play"></i> Resume'
